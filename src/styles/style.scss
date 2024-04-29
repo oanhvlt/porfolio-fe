@@ -1,6 +1,7 @@
 $color_1: #333;
 $color_2: #fff;
-$color_3: #E3872D;
+$color_3: #a7c5a0;
+$color_3_2: #509966;
 $color_4: #041230;
 $color_5: #000;
 $color_6: #BD0A0D;
@@ -16,7 +17,7 @@ $font-family_1: "Open Sans";
 $font-family_2: "Montserrat";
 $background-color_1: #fff;
 $background-color_2: #041230;
-$background-color_3: #E3872D;
+$background-color_3: #416e33;
 $background-color_4: rgba(7,23,55,.8);
 $background-color_5: #f6f7fd;
 $background-color_6: #d1d7db;
@@ -62,6 +63,7 @@ $border-bottom-color_1: #fff;
 /*---------------------------------------------------*/
 /*	02) ARLO CONTENT
 /*---------------------------------------------------*/
+
 @-webkit-keyframes bounce {
 	0%,20%,50%,80%,100% {
 		-webkit-transform: translateY(0);
@@ -509,7 +511,7 @@ img.svg {
 	height: auto;
 	clear: both;
 	float: left;
-	margin-bottom: 100px;
+	//margin-bottom: 100px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -894,10 +896,12 @@ img.svg {
 	transform: translateX(-50%);
 	margin-left: -21px;
 	z-index: 55;
-	a {
+	cursor: pointer;
+	span {
 		text-decoration: none;
 		color: $color_2;
 		font-size: 30px;
+		cursor: pointer;
 	}
 }
 .arlo_tm_arrow_wrap.bounce {
@@ -1041,8 +1045,13 @@ img.svg {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	background-color: $background-color_5;
-	padding: 90px 0px;
-	margin-bottom: 100px;
+	//padding: 90px 0px;
+	padding-top: 90px;
+	//margin-bottom: 100px;
+	&:last-child{
+		padding-bottom: 90px;
+		margin-bottom: 100px;
+	}
 	.inner_wrap {
 		width: 100%;
 		height: auto;
@@ -1054,7 +1063,7 @@ img.svg {
 		display: flex;
 	}
 	.leftbox {
-		width: 35%;
+		width: 50%;
 		height: auto;
 		clear: both;
 		float: left;
@@ -1064,7 +1073,7 @@ img.svg {
 		box-sizing: border-box;
 	}
 	.rightbox {
-		width: 65%;
+		width: 50%;
 		height: auto;
 		clear: both;
 		float: right;
@@ -2122,9 +2131,9 @@ img.svg {
 	height: auto;
 	clear: both;
 	float: left;
-	text-align: left;
+	text-align: center;
 	background-color: $background-color_2;
-	padding: 50px 0px;
+	padding: 40px 0px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
