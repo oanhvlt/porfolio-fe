@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BsArrowRight } from 'react-icons/bs';
 import { DiNodejsSmall } from 'react-icons/di';
 import { AiFillFacebook } from 'react-icons/ai';
+import iconProject from '@/assets/img/svg/camera-diaphragm.svg';
 
 
 interface IProject {
@@ -22,9 +23,10 @@ interface IProject {
 const Projects = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [dataDetail, setDataDetail] = useState<IProject | null>(null);
+
     const dataProjects: IProject[] = [
         {
-            image: "img/svg/camera-diaphragm.svg",
+            image: "src/assets/img/svg/adobe-illustrator.svg",
             title: "Web1",
             shortDescription: "shortDescription Web1",
             details: {
@@ -37,7 +39,7 @@ const Projects = () => {
             }
         },
         {
-            image: "img/svg/camera-diaphragm.svg",
+            image: "src/assets/img/svg/layers.svg",
             title: "Web2",
             shortDescription: "shortDescription Web2",
             details: {
@@ -50,7 +52,7 @@ const Projects = () => {
             }
         },
         {
-            image: "img/svg/camera-diaphragm.svg",
+            image: "src/assets/img/svg/camera-diaphragm.svg",
             title: "3",
             shortDescription: "shortDescription 3",
             details: {
@@ -63,7 +65,7 @@ const Projects = () => {
             }
         },
         {
-            image: "img/svg/camera-diaphragm.svg",
+            image: "src/assets/img/svg/camera-diaphragm.svg",
             title: "4",
             shortDescription: "shortDescription 4",
             details: {
@@ -76,7 +78,7 @@ const Projects = () => {
             }
         },
         {
-            image: "img/svg/camera-diaphragm.svg",
+            image: "src/assets/img/svg/camera-diaphragm.svg",
             title: "5",
             shortDescription: "shortDescription 5",
             details: {
@@ -89,7 +91,7 @@ const Projects = () => {
             }
         },
         {
-            image: "img/svg/camera-diaphragm.svg",
+            image: "src/assets/img/svg/camera-diaphragm.svg",
             title: "6",
             shortDescription: "shortDescription 6",
             details: {

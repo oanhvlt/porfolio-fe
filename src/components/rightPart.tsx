@@ -1,3 +1,4 @@
+import { useState } from "react";
 import About from "./content/about";
 import Contact from "./content/contact";
 import HomeCV from "./content/homeCV";
@@ -7,13 +8,16 @@ import Skills from "./content/skills";
 interface IProps {
     hideLeftPart: boolean;
     setHideLeftPart: (v: boolean) => void;
+    activeAbout: boolean;
+    setActiveAbout: (value: boolean) => void;
 }
 
 const RightPart = (props: IProps) => {
+    const { hideLeftPart, activeAbout, setActiveAbout } = props;
     return (
-        <div className={props.hideLeftPart ? "arlo_tm_rightpart opened" : "arlo_tm_rightpart"}>
+        <div className={hideLeftPart ? "arlo_tm_rightpart opened" : "arlo_tm_rightpart"}>
             <div className="rightpart_inner">
-                <HomeCV />
+                <HomeCV setActiveAbout={setActiveAbout} />
 
                 {/* ABOUT */}
                 <About />

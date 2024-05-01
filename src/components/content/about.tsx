@@ -2,8 +2,26 @@ import myImg from '@/assets/img/about/img.jpeg';
 import myFrame from '@/assets/img/about/550x640.jpg';
 import myCV from '@/assets/CV.pdf';
 import { TypeAnimation } from 'react-type-animation';
+import { useEffect, useRef } from 'react';
+import Parallax from 'parallax-js';
+
 
 const About = () => {
+
+    const sceneEl = useRef(null);
+
+    useEffect(() => {
+        if (sceneEl && sceneEl.current) {
+            const parallaxInstance = new Parallax(sceneEl.current, {
+                relativeInput: true,
+                hoverOnly: true
+            })
+
+            parallaxInstance.enable();
+
+            return () => parallaxInstance.disable();
+        }
+    }, []);
 
     return (
         <div className="arlo_tm_section relative" id="about" style={{ paddingTop: '100px' }}>
@@ -16,14 +34,14 @@ const About = () => {
                     <div className="arlo_tm_about_wrap">
                         <div className="author_wrap">
                             <div className="leftbox">
-                                <div className="about_image_wrap parallax" data-relative-input="true">
-                                    <div className="image layer" data-depth="0.1">
+                                <div ref={sceneEl} className="about_image_wrap parallax" data-relative-input="true">
+                                    <div className="image layer" data-depth="0.2">
                                         <img src={myFrame} alt="550x640" />
                                         <div className="inner" data-img-url={myImg}
                                             style={{ backgroundImage: `url(${myImg})` }}
                                         ></div>
                                     </div>
-                                    <div className="border layer" data-depth="0.2">
+                                    <div className="border layer" data-depth="0.6">
                                         <img src={myFrame} alt="550x640" />
                                         <div className="inner"></div>
                                     </div>

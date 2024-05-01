@@ -1,6 +1,6 @@
 $color_1: #333;
 $color_2: #fff;
-$color_3: #a7c5a0;
+$color_3: #b3d3ac;
 $color_3_2: #509966;
 $color_4: #041230;
 $color_5: #000;
@@ -16,9 +16,9 @@ $color_14: inherit;
 $font-family_1: "Open Sans";
 $font-family_2: "Montserrat";
 $background-color_1: #fff;
-$background-color_2: #041230;
-$background-color_3: #416e33;
-$background-color_4: rgba(7,23,55,.8);
+$background-color_2: #1a251c;
+$background-color_3: #56814d;
+$background-color_4: rgba(55, 78, 67, 0.8);
 $background-color_5: #f6f7fd;
 $background-color_6: #d1d7db;
 $background-color_7: #333;
@@ -63,6 +63,9 @@ $border-bottom-color_1: #fff;
 /*---------------------------------------------------*/
 /*	02) ARLO CONTENT
 /*---------------------------------------------------*/
+html {
+	scroll-behavior: smooth;
+}
 
 @-webkit-keyframes bounce {
 	0%,20%,50%,80%,100% {
@@ -371,6 +374,7 @@ img.svg {
 					-o-transition: all .3s ease;
 					transition: all .3s ease;
 					&:before {
+						//color: $color_2;
 						position: absolute;
 						content: "";
 						height: 2px;
@@ -388,10 +392,15 @@ img.svg {
 					}
 					&:hover {
 						color: $color_3;
-						&:before {
-							width: 35px;
-						}
+						// &:before {
+						// 	width: 35px;
+						// }
 					}
+					&.active{
+						color: $color_3;
+					}
+					
+
 				}
 			}
 		}
@@ -430,9 +439,18 @@ img.svg {
 						&:hover {
 							color: $color_3;
 						}
+						&:active {
+							color: $color_3;
+						}
 					}
 				}
 			}
+		}
+	}
+	a{
+		color: '#fff';
+		&:active{
+			color: $color_3;
 		}
 	}
 	.arlo_tm_resize {
@@ -681,7 +699,7 @@ img.svg {
 		box-sizing: border-box;
 	}
 	.overlay_image.hero {
-		background-image: url(../img/hero/2.jpg);
+		background-image: url(../assets/img/hero/2.jpg);
 	}
 	.overlay_color.hero {
 		background-color: $background-color_4;
@@ -690,7 +708,7 @@ img.svg {
 		height: 100vh;
 	}
 	.overlay_image.testimonial {
-		background-image: url(../img/hero/3.jpg);
+		background-image: url(../assets/img/hero/3.jpg);
 	}
 	.overlay_color.testimonial {
 		background-color: $background-color_4;
@@ -2209,7 +2227,7 @@ img.svg {
 .arlo_tm_universal_box_wrap.particle {
 	height: 100vh;
 	position: relative;
-	background-image: url(../img/hero/2.jpg);
+	background-image: url(../assets/img/hero/2.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;

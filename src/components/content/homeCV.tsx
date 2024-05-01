@@ -1,11 +1,20 @@
 import { TypeAnimation } from "react-type-animation";
 import myImg from '@/assets/img/hero/alice.jpeg';
+import background from '@/assets/img/hero/2.jpg';
 
-const HomeCV = () => {
+interface IProps {
+    setActiveAbout: (value: boolean) => void;
+}
+
+const HomeCV = (props: IProps) => {
+    const { setActiveAbout } = props;
     const handleScrollToAbout = () => {
         const section = document.querySelector('#about');
+        console.log(section)
         if (section) {
-            section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.location.hash = '#about';
+            setActiveAbout(true);
         }
 
     }

@@ -4,8 +4,12 @@ import PreLoader from "../components/preLoader";
 import RightPart from "../components/rightPart";
 import { FloatButton } from 'antd';
 
+
+
 const Portfolio = () => {
     const [hideLeftPart, setHideLeftPart] = useState<boolean>(false);
+    const [activeAbout, setActiveAbout] = useState<boolean>(false);
+
     return (
         < div className="arlo_tm_wrapper_all" >
 
@@ -53,11 +57,14 @@ const Portfolio = () => {
             <div className="arlo_tm_content">
 
                 {/* LEFTPART */}
-                <LeftPart hideLeftPart={hideLeftPart} setHideLeftPart={setHideLeftPart} />
+                <LeftPart hideLeftPart={hideLeftPart} setHideLeftPart={setHideLeftPart}
+                    activeAbout={activeAbout} setActiveAbout={setActiveAbout} />
                 {/* /LEFTPART */}
 
                 {/* RIGHTPART */}
-                <RightPart hideLeftPart={hideLeftPart} setHideLeftPart={setHideLeftPart} />
+                <RightPart hideLeftPart={hideLeftPart} setHideLeftPart={setHideLeftPart}
+                    activeAbout={activeAbout} setActiveAbout={setActiveAbout}
+                />
                 {/* /RIGHTPART */}
 
                 {/* <a className="arlo_tm_totop" href="#"></a> */}

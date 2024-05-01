@@ -1,11 +1,48 @@
-import desktopLogo from '@/assets/img/logo/myLogo6.png';
+import desktopLogo from '@/assets/img/logo/myLogo.png';
+import { useEffect, useState } from 'react';
 
 interface IProps {
     hideLeftPart: boolean;
     setHideLeftPart: (v: boolean) => void;
+    activeAbout: boolean;
+    setActiveAbout: (value: boolean) => void;
 }
 
+
 const LeftPart = (props: IProps) => {
+    const { activeAbout, setActiveAbout } = props;
+    console.log('activeAbout', activeAbout)
+    const [activeTab, setActiveTab] = useState<string>('home');
+
+    useEffect(() => {
+        const { hash } = window.location;
+        if (hash) {
+            const tab = hash.replace('#', '');
+            setActiveTab(tab);
+            const section = document.querySelector(`${hash}`);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        if (activeAbout) {
+            setActiveTab('about');
+            console.log('activeAbout 1 ', activeAbout);
+            setActiveAbout(false);
+        }
+
+    }, [activeTab, activeAbout])
+
+    //:React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    const handleClickTab = (tab: string, e: any) => {
+        //e.preventDefault();
+        setActiveTab(tab);
+        const section = document.querySelector(`#${tab}`);
+        if (section) {
+            window.location.hash = tab;
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
     return (
         <div className={props.hideLeftPart ? "arlo_tm_leftpart_wrap opened" : "arlo_tm_leftpart_wrap"}>
             <div className="leftpart_inner">
@@ -13,12 +50,27 @@ const LeftPart = (props: IProps) => {
                     <a href="#"><img src={desktopLogo} alt="desktop-logo" /></a>
                 </div>
                 <div className="menu_list_wrap">
-                    <ul className="anchor_nav">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                    <ul>
+                        <li><a href="#home" className={activeTab === 'home' ? 'active' : ''}
+                            onClick={(e) => handleClickTab('home', e)}>
+                            Home
+                        </a></li>
+                        <li><a href="#about" className={activeTab === 'about' ? 'active' : ''}
+                            onClick={(e) => handleClickTab('about', e)}>
+                            About
+                        </a></li>
+                        <li><a href="#skills" className={activeTab === 'skills' ? 'active' : ''}
+                            onClick={(e) => handleClickTab('skills', e)}>
+                            Skills
+                        </a></li>
+                        <li><a href="#projects" className={activeTab === 'projects' ? 'active' : ''}
+                            onClick={(e) => handleClickTab('projects', e)}>
+                            Projects
+                        </a></li>
+                        <li><a href="#contact" className={activeTab === 'contact' ? 'active' : ''}
+                            onClick={(e) => handleClickTab('contact', e)}>
+                            Contact
+                        </a></li>
                         {/* <li><a href="#news">News</a></li>
                         <li><a href="#contact">Contact</a></li> */}
                     </ul>
@@ -34,7 +86,10 @@ const LeftPart = (props: IProps) => {
                         </ul> */}
                     </div>
                 </div>
-                <a onClick={() => props.setHideLeftPart(!props.hideLeftPart)}
+                <a onClick={(e) => {
+                    e.preventDefault();
+                    props.setHideLeftPart(!props.hideLeftPart)
+                }}
                     className={props.hideLeftPart ? "arlo_tm_resize opened" : "arlo_tm_resize"}
                     href="#">
                     <i className={props.hideLeftPart ? "xcon-angle-left opened" : "xcon-angle-left"}></i>
