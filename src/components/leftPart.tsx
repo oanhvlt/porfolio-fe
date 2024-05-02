@@ -1,5 +1,6 @@
 import desktopLogo from '@/assets/img/logo/myLogo.png';
 import { useEffect, useState } from 'react';
+import { isMobile } from "react-device-detect";
 
 interface IProps {
     hideLeftPart: boolean;
@@ -11,7 +12,6 @@ interface IProps {
 
 const LeftPart = (props: IProps) => {
     const { activeAbout, setActiveAbout } = props;
-    console.log('activeAbout', activeAbout)
     const [activeTab, setActiveTab] = useState<string>('home');
 
     useEffect(() => {
@@ -26,7 +26,6 @@ const LeftPart = (props: IProps) => {
         }
         if (activeAbout) {
             setActiveTab('about');
-            console.log('activeAbout 1 ', activeAbout);
             setActiveAbout(false);
         }
 
@@ -50,7 +49,7 @@ const LeftPart = (props: IProps) => {
                     <a href="#"><img src={desktopLogo} alt="desktop-logo" /></a>
                 </div>
                 <div className="menu_list_wrap">
-                    <ul>
+                    <ul className='anchor_nav'>
                         <li><a href="#home" className={activeTab === 'home' ? 'active' : ''}
                             onClick={(e) => handleClickTab('home', e)}>
                             Home
@@ -86,14 +85,18 @@ const LeftPart = (props: IProps) => {
                         </ul> */}
                     </div>
                 </div>
-                <a onClick={(e) => {
-                    e.preventDefault();
-                    props.setHideLeftPart(!props.hideLeftPart)
-                }}
-                    className={props.hideLeftPart ? "arlo_tm_resize opened" : "arlo_tm_resize"}
-                    href="#">
-                    <i className={props.hideLeftPart ? "xcon-angle-left opened" : "xcon-angle-left"}></i>
-                </a>
+                {!isMobile &&
+                    <a className={props.hideLeftPart ? "arlo_tm_resize opened" : "arlo_tm_resize"}
+                        href="#"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            props.setHideLeftPart(!props.hideLeftPart)
+                        }}>
+                        <i className={props.hideLeftPart ?
+                            "xcon-angle-left opened" : "xcon-angle-left"}></i>
+                    </a>
+                }
+
             </div>
         </div>
     )

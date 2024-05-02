@@ -118,36 +118,6 @@ const Projects = () => {
 
     return (
         <>
-            {/* <Button type="primary" onClick={showModal}>
-                Open Modal
-            </Button> */}
-            <Modal
-                //title={dataDetail && dataDetail.title ? `Project ${dataDetail.title}` : ""}
-                title={
-                    <span style={{ color: '#509966', fontSize: '16px' }}>
-                        {dataDetail && dataDetail.title ? `Project ${dataDetail.title}` : ""}
-                    </span>}
-                open={isModalOpen}
-                onOk={() => handleCloseModal()}
-                // onCancel={handleCloseModal}
-                onCancel={() => handleCloseModal()}
-                footer={null}
-                maskClosable={false}
-                centered
-            >
-                {dataDetail &&
-                    <ul style={{ paddingLeft: '30px', fontSize: '14px' }}>
-                        <li>Description: {dataDetail.details.description}</li>
-                        <li>Frontend: {dataDetail.details.frontend}</li>
-                        <li>Backend: {dataDetail.details.backend}</li>
-                        <li>Members: {dataDetail.details.members}</li>
-                        <li>Role: {dataDetail.details.role}</li>
-                        <li>Demo:
-                            &nbsp;<a style={{ color: '#416e33' }} href={dataDetail.details.demo} target="_blank">{dataDetail.details.demo} </a>
-                        </li>
-                    </ul>
-                }
-            </Modal>
             <div className="arlo_tm_section" id="projects">
                 <div className="arlo_tm_services_wrap">
                     <div className="container">
@@ -196,6 +166,33 @@ const Projects = () => {
                     </div>
                 </div>
             </div>
+            <Modal
+                //title={dataDetail && dataDetail.title ? `Project ${dataDetail.title}` : ""}
+                title={
+                    <span style={{ color: '#509966', fontSize: '16px' }}>
+                        {dataDetail && dataDetail.title ? `Project ${dataDetail.title}` : ""}
+                    </span>}
+                open={isModalOpen}
+                onOk={() => handleCloseModal()}
+                // onCancel={handleCloseModal}
+                onCancel={() => handleCloseModal()}
+                footer={null}
+                maskClosable={false}
+                centered
+            >
+                {dataDetail &&
+                    <ul style={{ paddingLeft: '30px', fontSize: '14px' }}>
+                        <li>Description: {dataDetail.details.description}</li>
+                        <li>Frontend: {dataDetail.details.frontend}</li>
+                        <li>Backend: {dataDetail.details.backend}</li>
+                        <li>Members: {dataDetail.details.members}</li>
+                        <li>Role: {dataDetail.details.role}</li>
+                        <li>Demo:
+                            &nbsp;<a style={{ color: '#416e33' }} href={dataDetail.details.demo} target="_blank">{dataDetail.details.demo} </a>
+                        </li>
+                    </ul>
+                }
+            </Modal>
         </>
 
     )
